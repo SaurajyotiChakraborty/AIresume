@@ -294,7 +294,9 @@ export const usePuterStore = create<PuterStore>((set, get) => {
 
     const upload = async (files: File[] | Blob[]) => {
         const puter = getPuter();
+        console.log("Puter instance:", puter);
         if (!puter) {
+            console.error("Puter fs not ready!");
             setError("Puter.js not available");
             return;
         }
@@ -350,7 +352,7 @@ export const usePuterStore = create<PuterStore>((set, get) => {
                     ],
                 },
             ],
-            { model: "claude-sonnet-4" }
+            { model: "claude-3-7-sonnet" }
         ) as Promise<AIResponse | undefined>;
     };
 
