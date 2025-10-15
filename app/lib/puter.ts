@@ -294,9 +294,7 @@ export const usePuterStore = create<PuterStore>((set, get) => {
 
     const upload = async (files: File[] | Blob[]) => {
         const puter = getPuter();
-        console.log("Puter instance:", puter);
         if (!puter) {
-            console.error("Puter fs not ready!");
             setError("Puter.js not available");
             return;
         }
